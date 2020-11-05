@@ -1,11 +1,9 @@
 package com.game.projet.company;
 
-public class Magiciens {
+public class Joueur {
 
-    int nombreVie =200;
-    public Magiciens(){
-        
-    }
+    int nombreVie;
+    Arms arms;
 
     public void Attaque(Personnage ActionAtaque,Personnage subiAttaque ){
 
