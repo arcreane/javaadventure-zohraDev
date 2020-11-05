@@ -1,29 +1,30 @@
 package com.game.projet.company;
 
-import java.util.Random;
-
 public class Piece {
-
-    int numeroPiec;
     Personnage monstre;
+    int numeroPiec;
+
+    public Piece(){
+        monstre =new Personnage();
+        if(Math.random()<0.5){
+
+            monstre.NomPersonnage="magiciens";
+            monstre.typeArme.nomArms="eclairs";
+            monstre.typeArme.NbrPointAttaque=10;
+            monstre.etat=true;
+            monstre.nbrVie=20;
+
+        }else{
+            monstre.NomPersonnage="barbars";
+            monstre.typeArme.nomArms="hache";
+            monstre.typeArme.NbrPointAttaque=15;
+            monstre.etat=true;
+            monstre.nbrVie=20;
 
 
 
-        public Piece(){
-
-            if(Math.random()<0.5){
-                monstre.nomPersonnage="magiciens";
-                monstre.typeArme.setNomArm("Eclaire");
-                monstre.typeArme.NombrePoint=15;
-
-            }else {
-                monstre.nomPersonnage="barbars";
-                monstre.typeArme.setNomArm("hache");
-                monstre.typeArme.NombrePoint=10;
-
-            }
         }
 
 
-
+    }
 }

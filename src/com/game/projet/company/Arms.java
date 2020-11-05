@@ -1,22 +1,12 @@
 package com.game.projet.company;
 
-public class Arms {
+    public class Arms {
 
-    private String nomArm;
+        int NbrPointAttaque;
+        String nomArms;
+        public Arms(){
 
-    int NombrePoint;
+        }
 
-    public Arms(){
 
     }
-
-
-    public String getNomArm() {
-        return nomArm;
-    }
-
-    public void setNomArm(String nomArm) {
-        this.nomArm = nomArm;
-    }
-
-}

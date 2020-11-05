@@ -6,28 +6,36 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
+
+
         Scanner sc =new Scanner(System.in);
 
         Piece[] pieceDugeon = new Piece[5];// tableau contenant les pièces
 
+        // les pièces seront crées dès lancement du jeux
+
+        for(int i=0;i<5;i++){
+            pieceDugeon[i]=new Piece();
+            pieceDugeon[i].numeroPiec=i+1;
+        }
+
+
+
         Personnage joueur = new Personnage(); // Création du joeurs.
-        System.out.print("Entrer le nom que vous voulez donner à votre joueur ici:.. :");
-        joueur.nomPersonnage=sc.nextLine();
+        joueur.nbrVie=200;
+        joueur.etat=true;
+        joueur.NomPersonnage="joueur";
+
 
 
         int i =0;
 
-
         do{
-            // Le combat d'une pièce :
-            
-            String armjoueur;
-            pieceDugeon[i]=new Piece();
-            pieceDugeon[i].numeroPiec=i;// initialise le numéro de la pièce
 
+            
             joueur.Attaque(pieceDugeon[i].monstre,joueur);// un monstre attaque.
 
-            if(pieceDugeon[i].monstre.nomPersonnage.contentEquals("magiciens")){ // le magicien qui attaque
+            if(pieceDugeon[i].monstre.NomPersonnage.contentEquals("magiciens")){ // le magicien qui attaque
 
 
 
@@ -37,7 +45,7 @@ public class Main {
 
                 armjoueur= sc.nextLine(); // recupère le nom de l'arme que le joueur vas utiliser
 
-                if(joueur.typeArme.getNomArm().equals("eauMagic")){   // le joueur attaque le magicien
+                if(joueur.typeArme.nomArms.equals("eauMagic")){   // le joueur attaque le magicien
                     joueur.Attaque(joueur,pieceDugeon[i].monstre);
                 }
             }else {
@@ -48,7 +56,7 @@ public class Main {
 
                 armjoueur= sc.nextLine(); // recupère le nom de l'arme que le joueur vas utiliser
 
-                if(joueur.typeArme.getNomArm().equals("Epee")){   // le joueur attaque le barbar
+                if(joueur.typeArme.nomArms.equals("Epee")){   // le joueur attaque le barbar
                     joueur.Attaque(joueur,pieceDugeon[i].monstre);
                 }
 
@@ -70,7 +78,7 @@ public class Main {
                                                                   // si le joueur n'a plus de vie
                                                                   // ou il arrive à la 5 pièce.
 
-
+*/
     }
 
 
