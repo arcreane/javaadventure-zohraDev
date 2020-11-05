@@ -4,6 +4,7 @@ package com.game.projet.company;
 
         int NbrPointAttaque;
         String nomArms;
+
         public Arms(){
 
         }

@@ -6,18 +6,19 @@ public class Piece {
 
     public Piece(){
         monstre =new Personnage();
+
         if(Math.random()<0.5){
 
             monstre.NomPersonnage="magiciens";
-            monstre.typeArme.nomArms="eclairs";
-            monstre.typeArme.NbrPointAttaque=10;
+            monstre.nomArms="eclairs";
+            monstre.NbrPointAttaque=10;
             monstre.etat=true;
             monstre.nbrVie=20;
 
         }else{
             monstre.NomPersonnage="barbars";
-            monstre.typeArme.nomArms="hache";
-            monstre.typeArme.NbrPointAttaque=15;
+            monstre.nomArms="hache";
+            monstre.NbrPointAttaque=15;
             monstre.etat=true;
             monstre.nbrVie=20;
 
