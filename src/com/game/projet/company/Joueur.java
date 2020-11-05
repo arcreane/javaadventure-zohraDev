@@ -3,7 +3,7 @@ package com.game.projet.company;
 public class Joueur {
 
     int nombreVie;
-    Arms arms;
+    Arms typeArme;
 
     public void Attaque(Personnage ActionAtaque,Personnage subiAttaque ){
 

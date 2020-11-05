@@ -5,7 +5,7 @@ public class Main {
     public static void main(String[] args) {
 
         Piece[] pieceDugeon = new Piece[5];// tableau contenant les pièces
-        Joueur joueur = new Joueur();
+       Personnage joueur = new Personnage();
 
         int i =0;
         do{
