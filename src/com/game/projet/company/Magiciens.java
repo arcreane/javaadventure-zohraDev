@@ -1,8 +1,4 @@
 package com.game.projet.company;
 
-public class Piece {
-
-
-
-
+public class Magiciens {
 }
