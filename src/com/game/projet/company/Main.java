@@ -1,5 +1,6 @@
 package com.game.projet.company;
 
+import javax.swing.plaf.synth.SynthOptionPaneUI;
 import java.util.PrimitiveIterator;
 import java.util.Scanner;
 
@@ -9,6 +10,7 @@ public class Main {
 
         System.out.println("Bienvenu dans l' Aventure de Donjon ");
         Scanner sc =new Scanner(System.in);
+        boolean clesPorte;
 
         Piece[] pieceDugeon = new Piece[5];// tableau contenant les pièces
 
@@ -16,7 +18,7 @@ public class Main {
 
         for(int i=0;i<5;i++){
             pieceDugeon[i]=new Piece();
-            pieceDugeon[i].numeroPiec=i+1;
+            pieceDugeon[i].numeroPiece=i+1;
         }
 
 
@@ -25,72 +27,117 @@ public class Main {
 
 
         int i =0;
-            String armjoueur;  // le type l'arme que vas introduire le joueur
 
-      // do{
+        String armjoueur;  // le type l'arme que vas introduire le joueur
 
+      do{
+          System.out.println("Vous êtes dans la pièce Numéro :" +pieceDugeon[i].numeroPiece );
 
+//**********************************************partie Entre Hero et Magicien****************************
             int nbreAttaque =0;
 
-            System.out.print("Un "+pieceDugeon[i].monstre.NomPersonnage +" se cache derière la porte \n");
+            System.out.print("Un magicien se cache derière la porte \n");
 
-            if((pieceDugeon[i].monstre.NomPersonnage.equals("magiciens"))&&(pieceDugeon[i].monstre.etat)){ // le magicien qui attaque
-
-                    joueur.Attaque(pieceDugeon[i].monstre,joueur);// un monstre attaque.
-
-                    System.out.print("Le magicien vous a attaqué, vous avez perdu "+pieceDugeon[i].monstre.NbrPointAttaque+"\n"+
-                                    "Vous avez  " +joueur.nbrVie+  " Poits de vie");
+            if(pieceDugeon[i].monstre.NomPersonnage.equals("magiciens")){ // le magicien qui attaque
 
 
-                    if(Math.random()<0.1){
+                do {
+
+                    joueur.Attaque(pieceDugeon[i].monstre, joueur);// un magicien attaque.
+
+                    System.out.print("Le magicien vous a attaqué, vous avez perdu  " + pieceDugeon[i].monstre.NbrPointAttaque + "\n" +
+                            " Vous avez  " + joueur.nbrVie + " Poits de vie\n");
+
+
+                    if (Math.random() < 0.1) {
                         System.out.println("Le magicienc vous a praliser Vous ne pourrez l'attaquer juqu'au tour prochain");
 
 
-                    }else{
-                        System.out.print("Attention pour attaque vous devez choisir \" eauMagic \" "+"\n"+
+                    } else {
+                        System.out.print("Attention pour attaque vous devez choisir \" eauMagic \" " + "\n" +
                                 "Entrer le nom de votre arme ici:.... ");
 
-                         armjoueur= sc.nextLine(); // recupère le nom de l'arme que le joueur vas utiliser
+                        armjoueur = sc.nextLine(); // recupère le nom de l'arme que le joueur vas utiliser
 
-                        if(armjoueur.equals("eauMagic")){   // le joueur attaque le magicien
+                        if (armjoueur.equals("eauMagic")) {   // le joueur attaque le magicien
                             nbreAttaque++;
-                            joueur.Attaque(joueur,pieceDugeon[i].monstre);
-                            joueur.AttaqueHero(joueur,pieceDugeon[i].monstre,nbreAttaque);
+                            joueur.Attaque(joueur, pieceDugeon[i].monstre);
+                            joueur.AttaqueHero(joueur, pieceDugeon[i].monstre, nbreAttaque);
 
-                            System.out.print("Vous avez attaqué le magicien. Il a perdu "+nbreAttaque*joueur.NbrPointAttaque2+"\n"+
-                                              "Il lui reste " +pieceDugeon[i].monstre.nbrVie+"poits de vie" );
+                            System.out.print("Vous avez attaqué le magicien. Il a perdu " + nbreAttaque * joueur.NbrPointAttaque2 + "\n" +
+                                    "Il lui reste  " + pieceDugeon[i].monstre.nbrVie + " poits de vie\n");
 
 
-
-                        }else{
+                        } else {
                             System.out.println("Votre saisie est incorrecte");
                         }
                     }
 
-
-
-            }else {
-
-                System.out.println("Un barbar se cache derière la porte");
-
-                System.out.print("Vous ête attaqué par un Barbars.\n"+
-                                 "Vous avez perdu "+ ". Il vous reste "+
-                                "Attention pour attaque vous devez choisir \" Epee \" "+"\n"+
-                                "Entrer le nom de votre arme ici:.... " );
-
-                   armjoueur= sc.nextLine(); // recupère le nom de l'arme que le joueur vas utiliser
-
-                if(armjoueur.equals("Epee")){   // le joueur attaque le barbar
-                    joueur.Attaque(joueur,pieceDugeon[i].monstre);
-                }else{
-                    System.out.println("Vous avez fait une erreur de saisi.");
+                }while ((joueur.nbrVie>0) &&(pieceDugeon[i].monstre.nbrVie>0));
+                if(joueur.nbrVie==0){
+                    System.out.println("vous avez perdu la partie");
+                    clesPorte=false;
+                }{
+                    System.out.println("vous avez  tué le magicien entrez dans la pièce suivantes");
+                    clesPorte=true;
 
                 }
 
+//**********************************************partie Entre Hero et barbars******************************************
+            }else {
+
+
+                System.out.println("Un barbar se cache derière la porte");
+                do{
+
+                        if(pieceDugeon[i].monstre.etat!=false){
+
+
+                            joueur.Attaque(pieceDugeon[i].monstre,joueur);// un barbars attaque.
+
+                            System.out.print("Vous ête attaqué par un Barbars.\n"+
+                                    "Vous avez perdu "+pieceDugeon[i].monstre.NbrPointAttaque+"\n"+
+                                    "Il vous reste "+joueur.nbrVie+"\n"+
+                                    "Attention pour attaque vous devez choisir \" Epee \" "+"\n"+
+                                    "Entrer le nom de votre arme ici:.... " );
+                        }
+                        armjoueur= sc.nextLine();        // recupère le nom de l'arme que le joueur vas utiliser
+
+                        if(armjoueur.equals("Epee")){                                            // le joueur attaque le barbar
+                            joueur.AttaqueHero(joueur,pieceDugeon[i].monstre,2);
+                            System.out.print("Vous avez attaqué le barbas. Il a perdu  "+ 2*joueur.NbrPointAttaque+"\n"+
+                                    " Il lui reste  " +pieceDugeon[i].monstre.nbrVie+" poits de vie\n" );
+
+                            pieceDugeon[i].monstre.etat=true;
 
 
 
-            }
+                            if(Math.random()<0.1){
+                                System.out.print("Vous avez imobilisez le barbar\n"+
+                                                "Vous pouvez attaquer une deuxième fois"+
+                                                "Attention pour attaque vous devez choisir \" Epee \" "+"\n"+
+                                                "Entrer le nom de votre arme ici:.... " );;
+                                pieceDugeon[i].monstre.etat=false;
+                            }
+
+                        }else{
+                            System.out.println("Vous avez fait une erreur de saisi.");
+                        }
+
+
+
+                }while ((joueur.nbrVie>0) &&(pieceDugeon[i].monstre.nbrVie>0));
+                  if(joueur.nbrVie==0){
+                    System.out.println("vous avez perdu la partie");
+                      clesPorte=false;
+
+                 }{
+                     System.out.println("vous avez  tué le barbars entrez dans la pièce suivantes");
+                    clesPorte=true;
+
+                  }
+
+                }
 
 
 
@@ -102,11 +149,11 @@ public class Main {
 
 
 
-      //  }while(joueur.nbrVie >0 && pieceDugeon[i].numeroPiec<5);//condition d'aarête
-                                                                  // si le joueur n'a plus de vie
-                                                                  // ou il arrive à la 5 pièce.
+       }while((clesPorte==true)&&(i<5));//condition d'aarête
 
-
+        if ((clesPorte==true)&&(i==4)){
+            System.out.println("Bravo vous avez gagner le trésore");
+        }
     }
 
 

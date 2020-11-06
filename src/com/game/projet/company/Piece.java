@@ -2,7 +2,7 @@ package com.game.projet.company;
 
 public class Piece {
     Personnage monstre;
-    int numeroPiec;
+    int numeroPiece;
 
     public Piece(){
         monstre =new Personnage();
