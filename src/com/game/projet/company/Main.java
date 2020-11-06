@@ -10,7 +10,7 @@ public class Main {
 
         System.out.println("Bienvenu dans l' Aventure de Donjon ");
         Scanner sc =new Scanner(System.in);
-        boolean clesPorte;
+        boolean clesPorte=true;
 
         Piece[] pieceDugeon = new Piece[5];// tableau contenant les pièces
 
@@ -30,18 +30,18 @@ public class Main {
 
         String armjoueur;  // le type l'arme que vas introduire le joueur
 
-      do{
-          System.out.println("Vous êtes dans la pièce Numéro :" +pieceDugeon[i].numeroPiece );
+        while((clesPorte==true)&&(i<5)){
+          System.out.println("Vous êtes dans la pièce Numéro :" +pieceDugeon[i].numeroPiece +"\n");
 
 //**********************************************partie Entre Hero et Magicien****************************
             int nbreAttaque =0;
 
-            System.out.print("Un magicien se cache derière la porte \n");
+
 
             if(pieceDugeon[i].monstre.NomPersonnage.equals("magiciens")){ // le magicien qui attaque
+                System.out.print("Un magicien se cache derière la porte \n");
 
-
-                do {
+                while ((joueur.nbrVie>0) &&(pieceDugeon[i].monstre.nbrVie>0)){ // boucle combat hero et magiciens jusqu'à ce que l'un meurt
 
                     joueur.Attaque(pieceDugeon[i].monstre, joueur);// un magicien attaque.
 
@@ -73,11 +73,11 @@ public class Main {
                         }
                     }
 
-                }while ((joueur.nbrVie>0) &&(pieceDugeon[i].monstre.nbrVie>0));
+                }
                 if(joueur.nbrVie==0){
                     System.out.println("vous avez perdu la partie");
                     clesPorte=false;
-                }{
+                }else if(i<4){
                     System.out.println("vous avez  tué le magicien entrez dans la pièce suivantes");
                     clesPorte=true;
 
@@ -88,7 +88,7 @@ public class Main {
 
 
                 System.out.println("Un barbar se cache derière la porte");
-                do{
+                while ((joueur.nbrVie>0) &&(pieceDugeon[i].monstre.nbrVie>0)){
 
                         if(pieceDugeon[i].monstre.etat!=false){
 
@@ -126,12 +126,13 @@ public class Main {
 
 
 
-                }while ((joueur.nbrVie>0) &&(pieceDugeon[i].monstre.nbrVie>0));
+                }
+
                   if(joueur.nbrVie==0){
                     System.out.println("vous avez perdu la partie");
                       clesPorte=false;
 
-                 }{
+                 } else if(i<4){
                      System.out.println("vous avez  tué le barbars entrez dans la pièce suivantes");
                     clesPorte=true;
 
@@ -149,9 +150,9 @@ public class Main {
 
 
 
-       }while((clesPorte==true)&&(i<5));//condition d'aarête
+       }//condition d'arret
 
-        if ((clesPorte==true)&&(i==4)){
+        if ((clesPorte==true)&&(i==5)){
             System.out.println("Bravo vous avez gagner le trésore");
         }
     }

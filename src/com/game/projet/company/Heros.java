@@ -12,11 +12,26 @@ public class Heros extends Personnage {
     public void AttaqueHero(Heros actionAtaquer, Personnage subiAttaque,int nbreAttaque ){
         // On soustrait le nombre de points de l'arme de l'aquant du nombre dembre de vie d'attaqué.
 
-         if(subiAttaque.NomPersonnage.equals("magiciens")){
+         if(subiAttaque.NomPersonnage.equals("magiciens")){ // Heros attaque le magiciens
+             int k=subiAttaque.nbrVie-actionAtaquer.NbrPointAttaque2*nbreAttaque;// je teste le nombre de vie restant est positive
 
-             subiAttaque.nbrVie=subiAttaque.nbrVie-actionAtaquer.NbrPointAttaque2*nbreAttaque;  // Heros attaque le magiciens
-         }else{
-             subiAttaque.nbrVie=subiAttaque.nbrVie-actionAtaquer.NbrPointAttaque*nbreAttaque;   // Heros attaque le barbas
+             if(k>0){
+                 subiAttaque.nbrVie=k;}
+             else  {
+                 subiAttaque.nbrVie=0;
+             }
+
+
+
+         }else{// Heros attaque le barbar
+
+            int k =subiAttaque.nbrVie-actionAtaquer.NbrPointAttaque*nbreAttaque;
+
+             if(k>0){
+                 subiAttaque.nbrVie=k;}
+             else  {
+                 subiAttaque.nbrVie=0;
+             }
          }
 
 

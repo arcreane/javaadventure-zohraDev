@@ -20,7 +20,7 @@ public class Personnage {
     public void Attaque(Personnage actionAtaquer, Personnage subiAttaque ){
         // On soustrait le nombre de points de l'arme de l'aquant du nombre dembre de vie d'attaqué.
             int k=subiAttaque.nbrVie-actionAtaquer.NbrPointAttaque;
-         if(k!=0){
+         if(k>0){
              subiAttaque.nbrVie=k;}
          else  {
              subiAttaque.nbrVie=0;
