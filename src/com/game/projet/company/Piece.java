@@ -1,21 +1,24 @@
 package com.game.projet.company;
 
 public class Piece {
-    Personnage monstre;
+    Personnage monstre; //
     int numeroPiece;
 
     public Piece(){
-        monstre =new Personnage();
+        monstre=new Personnage();
 
-        if(Math.random()<0.5){
+        if(Math.random()<0.3){
 
-            monstre.NomPersonnage="magiciens";
+
+         monstre.NomPersonnage="magiciens";
             monstre.nomArms="eclairs";
             monstre.NbrPointAttaque=10;
             monstre.etat=true;
             monstre.nbrVie=20;
 
         }else{
+
+
             monstre.NomPersonnage="barbars";
             monstre.nomArms="hache";
             monstre.NbrPointAttaque=15;
@@ -23,9 +26,9 @@ public class Piece {
             monstre.nbrVie=20;
 
 
-
-        }
-
-
     }
-}
+
+
+
+
+}}

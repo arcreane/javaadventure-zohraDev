@@ -1,9 +1,16 @@
 package com.game.projet.company;
 
 public class Heros extends Personnage {
-    String nomArms2;
+
+    String nomArms;
+    int NbrPointAttaque;
+    String nomArms2="Epee";
     int NbrPointAttaque2;
 
+    public Heros(){
+
+
+    }
 
 
 
@@ -38,9 +45,8 @@ public class Heros extends Personnage {
 
     }
 
-    /*public void AttaqueBarbare(Personnage actionAtaquer, Personnage subiAttaque,int nbreAttaque){
+    public void AttaqueBarbare(Personnage actionAtaquer, Personnage subiAttaque,int nbreAttaque) {
 
-
-    }*/
+    }
 
 }

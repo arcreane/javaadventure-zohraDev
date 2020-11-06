@@ -26,6 +26,9 @@ public class Main {
         Heros joueur=intialiseJoueur();
 
 
+
+
+
         int i =0;
 
         String armjoueur;  // le type l'arme que vas introduire le joueur
@@ -62,10 +65,10 @@ public class Main {
                         if (armjoueur.equals("eauMagic")) {   // le joueur attaque le magicien
                             nbreAttaque++;
                             joueur.Attaque(joueur, pieceDugeon[i].monstre);
-                            joueur.AttaqueHero(joueur, pieceDugeon[i].monstre, nbreAttaque);
+                            //joueur.AttaqueHero(joueur, pieceDugeon[i].monstre, nbreAttaque);
 
-                            System.out.print("Vous avez attaqué le magicien. Il a perdu " + nbreAttaque * joueur.NbrPointAttaque2 + "\n" +
-                                    "Il lui reste  " + pieceDugeon[i].monstre.nbrVie + " poits de vie\n");
+                          //  System.out.print("Vous avez attaqué le magicien. Il a perdu " + nbreAttaque * joueur.NbrPointAttaque2 + "\n" +
+                                //    "Il lui reste  " + pieceDugeon[i].monstre.nbrVie + " poits de vie\n");
 
 
                         } else {
@@ -104,7 +107,7 @@ public class Main {
                         armjoueur= sc.nextLine();        // recupère le nom de l'arme que le joueur vas utiliser
 
                         if(armjoueur.equals("Epee")){                                            // le joueur attaque le barbar
-                            joueur.AttaqueHero(joueur,pieceDugeon[i].monstre,2);
+                          //  joueur.AttaqueHero(joueur,pieceDugeon[i].monstre,2);
                             System.out.print("Vous avez attaqué le barbas. Il a perdu  "+ 2*joueur.NbrPointAttaque+"\n"+
                                     " Il lui reste  " +pieceDugeon[i].monstre.nbrVie+" poits de vie\n" );
 

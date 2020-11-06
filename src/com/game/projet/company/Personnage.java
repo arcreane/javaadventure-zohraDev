@@ -2,12 +2,12 @@ package com.game.projet.company;
 
 public class Personnage {
 
-    int NbrPointAttaque;
-    String nomArms;
-    String typeArme;
-    int nbrVie;
-    String NomPersonnage;
-    boolean etat;
+       int NbrPointAttaque;
+       String nomArms;
+       String typeArme;
+       int nbrVie;
+       String NomPersonnage;
+       boolean etat;
 
     public Personnage(){
 
