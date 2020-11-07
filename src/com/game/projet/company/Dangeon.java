@@ -26,7 +26,7 @@ public class Dangeon {
                                                 // Je continue jusqu'à la 5 pièce
 
 
-            System.out.println("Vous rentrez dans la pièce N°"+ (i+1) +"\n");
+            System.out.println("\nVous rentrez dans la pièce N°"+ (i+1) +"\n");
             System.out.println("\n"+pieceDangeon[i].monstre.nomMonstre+" se cache derière la porte\n");
 
             pieceDangeon[i].entrePiece(aventurier); // l'aventurier entre dans la pièce pour combatre le monstre
