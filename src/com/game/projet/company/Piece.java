@@ -40,17 +40,21 @@ public class Piece {
                     if (Math.random() < 0.1) { // 10% de chance que le magicien paralyse le hero
 
 
-                        System.out.println("Le magiciens vous a paralysé, vous ne pourrez pas l'attequer\n ");
+                        System.out.println("Le magicien vous a paralysé, vous ne pourrez pas l'attaquer\n ");
 
-                    }else
-                        System.out.print("Pour attaquer le magigicient vous devez choisir \"FlaqueEau\" " +
-                                        " comme arme \n Entrez votre choix ici :...");
+                    }else{
+                        System.out.print("Pour attaquer le magicien vous devez choisir \"FlaqueEau\" " +"comme arme.\n"
+                                        +"Entrez votre choix ici :...");
 
 
                         if ((scanner.nextLine()).equals("FlaqueEau")) { // si Le joueur a mal saisi le nom de l'arme,
                                                                         // il ne pourra pas attaquer
-                             aventurier.Attaque(monstre,nombreCombat);
+                            aventurier.Attaque(monstre, nombreCombat);
+                        }else{
+                            System.out.println("Vous avez fait une erreur de saisie");
                         }
+
+                    }
 
                         //******************** le monstre dans la piece c'est Le barbar
                 }else {
@@ -66,14 +70,19 @@ public class Piece {
                             }
                         }
 
-                      System.out.print("Vous devez choisir \"Epee\" pour combattre le barbars");
+                      System.out.print("Vous devez choisir \"Epee\" pour combattre le barbar\n"+
+                                        "Entrez votre choix ici :...");
 
                         if((scanner.nextLine()).equals("Epee")){     //    Si le joueur saisi correctement le nom de l'arme
+
                             aventurier.Attaque(monstre,1); //   il combatera le barbar et
                             if (Math.random()<0.1){                  //   il a 10% de lui donner un dur
                                 etatBarbar=false;                    //   Donc il ne combatera prochaine tour.
+                                System.out.println("Vous avez paralyser le barbars");
                             }
 
+                        }else{
+                            System.out.println("Vous avez fait une erreur de saisie");
                         }
 
                 }

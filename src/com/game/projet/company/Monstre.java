@@ -29,9 +29,9 @@ public class Monstre{
     public boolean dommageAffliger(int nbreDommage,int k) {
         pointsVie -= nbreDommage*k;
       if (pointsVie <= 0) {
-            System.out.println("Le monstre est mort");
+            System.out.println("Vous avez tuer le monstre 🥳");
        }  else {
-            System.out.println("Vous avez perdu  " + nbreDommage*k + "points de vie . Ile vous reste " + pointsVie+" points de vie");
+            System.out.println("Le monstre a perdu  " + nbreDommage*k + " points de vie . Il lui reste " + pointsVie+" points de vie");
        }
         return estEnVie();
     }

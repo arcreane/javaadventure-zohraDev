@@ -38,9 +38,9 @@ public class Hero{
         pointsVie -= nbreDommage*nbrecombat;
 
         if (pointsVie <= 0) {
-            System.out.println("Vous êtes mort");
+            System.out.println("Vous êtes mort 🤪");
         }else {
-            System.out.println("Vous avez perdu  " +nbreDommage*nbrecombat+ "points de vie"+". Ile vous reste " + pointsVie+" points de vie");
+            System.out.println("Vous avez perdu  " +nbreDommage*nbrecombat+ " points de vie"+". Il vous reste " + pointsVie+" points de vie");
         }
         return estEnVie();
     }

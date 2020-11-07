@@ -25,9 +25,9 @@ public class Dangeon {
         while (aventurier.estEnVie()&&(i < 5)){  //condition d'arrêt : si le joueur est tjrs en vie
                                                 // Je continue jusqu'à la 5 pièce
 
-            System.out.println("Bienvue dans le jeux Aventure & Dangeon\n\n");
-            System.out.println("Vous rentrez dans le pièce N°"+ (i+1) );
-            System.out.println(pieceDangeon[i].monstre.nomMonstre+" se cache derière la porte");
+
+            System.out.println("Vous rentrez dans la pièce N°"+ (i+1) +"\n");
+            System.out.println("\n"+pieceDangeon[i].monstre.nomMonstre+" se cache derière la porte\n");
 
             pieceDangeon[i].entrePiece(aventurier); // l'aventurier entre dans la pièce pour combatre le monstre
 
@@ -37,7 +37,7 @@ public class Dangeon {
 
         }
         if (aventurier.estEnVie()){  // si l'aventurier est en vie, il rècupère le trèsor.
-             System.out.println("Bravo, vous avez reccuperé le trésor");
+             System.out.println("Bravo, vous avez reccuperé le trésor 🤩  🥳");
         }
 
                 
