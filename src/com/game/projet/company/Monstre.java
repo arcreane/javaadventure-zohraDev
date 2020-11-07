@@ -23,7 +23,7 @@ public class Monstre{
                                                                                    // retune false si l'aventurier est mort sinon true
 
     }
-    // les dommage subit le mosntre
+    // les dommages causées par le Hero.
 
 
     public boolean dommageAffliger(int nbreDommage,int k) {

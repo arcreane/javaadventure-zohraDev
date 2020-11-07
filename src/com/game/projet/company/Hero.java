@@ -31,10 +31,12 @@ public class Hero{
     }
 
 
-    // dommages causée par  le monstre
+    // dommages causées par  le monstre
 
     public boolean dommageAffliger(int nbreDommage, int nbrecombat) {
+
         pointsVie -= nbreDommage*nbrecombat;
+
         if (pointsVie <= 0) {
             System.out.println("Vous êtes mort");
         }else {

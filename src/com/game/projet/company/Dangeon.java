@@ -15,25 +15,31 @@ public class Dangeon {
             }
 
 
-    public void entreDangeon(Hero aventurier) {
-        int i=0;
+
+
+    public void entreDangeon(Hero aventurier) { // méthode qui fait rentre le Héro dans le Dangeon
+
+                int i=0;
         Scanner scanner =new Scanner(System.in);
 
-        while (aventurier.estEnVie()&&(i < 5)){
+        while (aventurier.estEnVie()&&(i < 5)){  //condition d'arrêt : si le joueur est tjrs en vie
+                                                // Je continue jusqu'à la 5 pièce
 
             System.out.println("Bienvue dans le jeux Aventure & Dangeon\n\n");
             System.out.println("Vous rentrez dans le pièce N°"+ (i+1) );
             System.out.println(pieceDangeon[i].monstre.nomMonstre+" se cache derière la porte");
-            pieceDangeon[i].entrePiece(aventurier);
+
+            pieceDangeon[i].entrePiece(aventurier); // l'aventurier entre dans la pièce pour combatre le monstre
 
 
 
                     i++;
 
         }
-        if (aventurier.estEnVie()){
+        if (aventurier.estEnVie()){  // si l'aventurier est en vie, il rècupère le trèsor.
              System.out.println("Bravo, vous avez reccuperé le trésor");
         }
+
                 
     }
 }
